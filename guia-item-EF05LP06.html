@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUIA · EF05LP06 · Concordância Verbal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#031E38;--navy2:#042C53;
+  --gold:#F5C45E;--gold2:#EF9F27;--gold3:#D4880A;
+  --white:#FFFFFF;
+  --line:rgba(245,196,94,0.18);--linedark:rgba(245,196,94,0.35);
+  --muted:rgba(255,255,255,0.55);--body:rgba(255,255,255,0.82);
+}
+html,body{background:var(--navy);font-family:'Barlow',sans-serif;color:var(--white);-webkit-font-smoothing:antialiased;}
+.page{max-width:430px;margin:0 auto;background:var(--navy);padding-bottom:48px;}
+
+.header{background:linear-gradient(160deg,#000E1C 0%,var(--navy2) 100%);padding:36px 24px 28px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
+.header::before{content:'GUIA';position:absolute;right:-10px;top:-10px;font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:700;color:rgba(245,196,94,0.04);line-height:1;pointer-events:none;user-select:none;}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;color:var(--white);letter-spacing:8px;line-height:1;margin-bottom:6px;}
+.brand-sub{font-size:10px;color:var(--muted);margin-bottom:22px;line-height:1.4;}
+.hdivider{width:40px;height:2px;background:linear-gradient(90deg,var(--gold2),transparent);margin-bottom:18px;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;}
+.pill{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border:1px solid var(--linedark);color:var(--gold);}
+.pill.solid{background:var(--gold2);border-color:var(--gold2);color:var(--navy);}
+
+.hab-strip{background:linear-gradient(90deg,var(--gold3),var(--gold2));padding:14px 24px;display:flex;align-items:flex-start;gap:14px;}
+.hab-code{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--navy);white-space:nowrap;padding-top:1px;}
+.hab-div{width:1px;background:rgba(3,30,56,0.25);align-self:stretch;flex-shrink:0;}
+.hab-desc{font-size:11px;font-weight:500;color:var(--navy);line-height:1.55;}
+
+.section{padding:24px 24px 0;}
+.sep{margin:24px 24px 0;height:1px;background:var(--line);}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:12px;}
+
+.objetivo-box{border-left:2px solid var(--gold2);padding:12px 16px;background:rgba(245,196,94,0.05);}
+.objetivo-box p{font-size:13px;line-height:1.75;color:var(--body);font-style:italic;}
+.objetivo-box strong{color:var(--gold);font-style:normal;}
+
+.textobase-card{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-top:2px solid var(--gold2);padding:18px 18px 14px;}
+.textobase-card p{font-size:13px;line-height:1.8;color:var(--body);}
+.textobase-card p+p{margin-top:12px;}
+.fonte{font-size:10px;color:var(--muted);margin-top:12px;font-style:italic;}
+
+/* ITEM — destaque no trecho */
+.trecho-destaque{background:rgba(245,196,94,0.1);border:1px solid rgba(245,196,94,0.25);padding:12px 16px;margin-bottom:14px;}
+.trecho-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;}
+.trecho-text{font-size:13px;line-height:1.7;color:var(--body);}
+.trecho-text u{text-decoration:underline;text-decoration-color:var(--gold2);text-underline-offset:3px;color:var(--gold);}
+
+.enunciado{font-size:13px;line-height:1.7;color:var(--body);margin-bottom:14px;}
+.enunciado strong{color:var(--white);}
+.alt-list{display:flex;flex-direction:column;gap:8px;}
+.alt{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.03);}
+.alt.gab{border-color:rgba(245,196,94,0.4);background:rgba(245,196,94,0.07);}
+.alt-ltr{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--muted);line-height:1;padding-top:1px;min-width:16px;}
+.alt.gab .alt-ltr{color:var(--gold);}
+.alt-txt{font-size:12px;line-height:1.65;color:var(--body);flex:1;}
+.alt-txt .err{color:#FF8A80;text-decoration:underline;text-decoration-color:rgba(255,138,128,0.5);text-underline-offset:2px;}
+.alt-txt .ok{color:#A8D5B5;}
+.gab-badge{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);background:var(--gold2);padding:3px 8px;align-self:center;white-space:nowrap;}
+
+/* CADEIA DE CONCORDÂNCIA */
+.cadeia{display:flex;flex-direction:column;gap:6px;margin-top:0;}
+.cadeia-title{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;}
+.cadeia-row{display:flex;align-items:center;gap:0;}
+.cadeia-box{flex:1;padding:8px 10px;font-size:11px;font-weight:600;text-align:center;line-height:1.3;}
+.cadeia-box.sujeito{background:rgba(245,196,94,0.12);border:1px solid rgba(245,196,94,0.3);color:var(--gold);}
+.cadeia-box.pronome{background:rgba(100,149,237,0.1);border:1px solid rgba(100,149,237,0.3);color:#93B4F5;}
+.cadeia-box.verbo{background:rgba(93,191,133,0.1);border:1px solid rgba(93,191,133,0.3);color:#A8D5B5;}
+.cadeia-arrow{font-size:11px;color:var(--linedark);padding:0 4px;flex-shrink:0;}
+.cadeia-label-row{display:flex;align-items:center;gap:0;}
+.cadeia-lbl{flex:1;font-family:'Barlow Condensed',sans-serif;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:center;}
+.cadeia-lbl-arrow{padding:0 4px;visibility:hidden;font-size:11px;}
+
+/* MATRIZ */
+.mcard-list{display:flex;flex-direction:column;gap:10px;}
+.mcard{border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.03);overflow:hidden;}
+.mcard.ok{border-color:rgba(245,196,94,0.3);background:rgba(245,196,94,0.04);}
+.mcard-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.15);}
+.mcard.ok .mcard-head{border-bottom-color:rgba(245,196,94,0.12);background:rgba(245,196,94,0.06);}
+.mcard-ltr{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:rgba(255,138,128,0.9);line-height:1;}
+.mcard.ok .mcard-ltr{color:var(--gold);}
+.mcard-padrao{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.5px;color:rgba(255,138,128,0.85);}
+.mcard.ok .mcard-padrao{color:var(--gold);}
+.mcard-body{padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+.mcard-row{display:flex;flex-direction:column;gap:3px;}
+.micro{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.mcard-text{font-size:12px;line-height:1.55;color:var(--body);}
+.mcard-hr{border:none;border-top:1px dashed rgba(255,255,255,0.07);}
+
+.evidencia-box{border:1px solid var(--linedark);background:rgba(245,196,94,0.06);padding:14px 16px;}
+.evid-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;}
+.evid-text{font-size:12.5px;line-height:1.65;color:var(--body);font-style:italic;}
+
+.fluxo-strip{background:rgba(0,0,0,0.25);padding:13px 24px;display:flex;align-items:center;flex-wrap:wrap;gap:2px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.fluxo-item{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);white-space:nowrap;}
+.fluxo-arrow{font-size:9px;color:var(--linedark);margin:0 5px;}
+
+.dec-table{display:flex;flex-direction:column;gap:6px;}
+.dec-row{display:grid;grid-template-columns:1fr 1.5fr;gap:1px;border:1px solid var(--line);overflow:hidden;}
+.dec-row.hrow .dec-cell{background:rgba(245,196,94,0.12);}
+.dec-cell{padding:10px 12px;font-size:11.5px;line-height:1.55;color:var(--body);background:rgba(255,255,255,0.02);}
+.dec-cell.lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.5px;color:var(--gold);}
+.dec-cell.th{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+
+.int-header{padding:28px 24px 0;}
+.int-main-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.2;}
+.int-sub{font-size:11.5px;color:var(--muted);margin-bottom:24px;}
+.int-card{margin:0 24px;background:rgba(255,255,255,0.03);border:1px solid var(--line);overflow:hidden;}
+.int-card+.int-card{margin-top:16px;}
+.int-head{padding:16px 18px 14px;border-bottom:1px solid var(--line);position:relative;}
+.int-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:rgba(245,196,94,0.08);position:absolute;right:14px;top:8px;line-height:1;}
+.int-tipo{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:4px;}
+.int-nome{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--white);line-height:1.15;}
+.int-body{padding:18px 18px;}
+.step{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.step:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.step-head{display:flex;align-items:baseline;gap:8px;margin-bottom:6px;}
+.step-title{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gold);}
+.step-body{font-size:12.5px;line-height:1.65;color:var(--body);}
+.fase-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--gold2);color:var(--navy);padding:3px 9px;margin-bottom:6px;}
+.perguntas{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+.pitem{display:flex;gap:10px;align-items:flex-start;padding:8px 12px;background:rgba(0,0,0,0.2);border-left:2px solid rgba(245,196,94,0.25);}
+.pnum{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold);min-width:14px;line-height:1.2;}
+.ptxt{font-size:12px;line-height:1.55;color:rgba(255,255,255,0.7);}
+.complete-box{margin-top:10px;padding:12px 14px;border:1px dashed rgba(245,196,94,0.3);background:rgba(245,196,94,0.03);}
+.complete-label{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;}
+.complete-text{font-size:12.5px;line-height:1.9;color:rgba(255,255,255,0.6);font-style:italic;}
+.complete-text span{display:inline-block;min-width:140px;border-bottom:1px solid rgba(245,196,94,0.4);}
+.estrategia-box{margin-top:12px;padding:11px 14px;border:1px solid rgba(245,196,94,0.2);background:rgba(245,196,94,0.04);}
+.est-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:5px;}
+.est-text{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,0.65);}
+.observar{margin-top:14px;padding:12px 14px;border:1px solid rgba(245,196,94,0.2);background:rgba(245,196,94,0.04);}
+.obs-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:5px;}
+.obs-text{font-size:12px;line-height:1.6;color:rgba(255,255,255,0.6);font-style:italic;}
+.chip-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.chip{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;color:var(--gold);padding:4px 10px;border:1px solid rgba(245,196,94,0.3);background:rgba(245,196,94,0.06);}
+
+/* GAME */
+.game-card{margin:0 24px;background:linear-gradient(170deg,#031220 0%,#042040 100%);border:1px solid rgba(245,196,94,0.25);overflow:hidden;}
+.game-head{padding:20px 20px 16px;border-bottom:1px solid rgba(245,196,94,0.15);background:linear-gradient(90deg,rgba(245,196,94,0.08) 0%,transparent 100%);}
+.game-tipo{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:4px;}
+.game-nome{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:3px;}
+.game-tagline{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.game-body{padding:20px 20px;display:flex;flex-direction:column;gap:22px;}
+.gblock-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,196,94,0.45);margin-bottom:12px;}
+.roleta-row{display:flex;align-items:center;gap:18px;}
+.rleg{display:flex;flex-direction:column;gap:7px;}
+.rleg-item{display:flex;align-items:center;gap:8px;}
+.rleg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.rleg-text{font-size:11px;color:var(--body);line-height:1.35;}
+.rleg-text strong{color:var(--gold);font-weight:600;}
+.da-row{display:flex;gap:18px;align-items:flex-start;}
+.da-block{flex:1;}
+.dado-faces{display:flex;flex-direction:column;gap:4px;margin-top:10px;}
+.dado-face{display:flex;align-items:baseline;gap:7px;}
+.df-n{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--gold);min-width:12px;line-height:1;}
+.df-a{font-size:11px;color:rgba(255,255,255,0.6);line-height:1.35;}
+.amp-tempos{display:flex;flex-direction:column;gap:4px;margin-top:10px;}
+.amp-t{display:flex;align-items:baseline;gap:7px;}
+.at-n{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--gold);min-width:26px;}
+.at-a{font-size:11px;color:rgba(255,255,255,0.6);}
+.tabuleiro{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;}
+.casa{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.03);text-align:center;padding:2px;line-height:1.2;}
+.casa.inicio{background:rgba(93,191,133,0.2);border-color:rgba(93,191,133,0.5);color:#A8D5B5;}
+.casa.fim{background:rgba(245,196,94,0.15);border-color:rgba(245,196,94,0.5);color:var(--gold);}
+.casa.plus{background:rgba(93,191,133,0.1);border-color:rgba(93,191,133,0.3);color:#A8D5B5;}
+.casa.minus{background:rgba(229,115,115,0.1);border-color:rgba(229,115,115,0.3);color:#FFAB9F;}
+.casa.carta{background:rgba(245,196,94,0.08);border-color:rgba(245,196,94,0.3);color:var(--gold);}
+.casa.pausa{background:rgba(183,121,31,0.1);border-color:rgba(183,121,31,0.3);color:#F6AD55;}
+.casa.desafio{background:rgba(100,149,237,0.1);border-color:rgba(100,149,237,0.3);color:#93B4F5;}
+.tab-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:8px;}
+.tleg{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;color:rgba(255,255,255,0.45);display:flex;align-items:center;gap:4px;}
+.tleg-dot{width:6px;height:6px;border-radius:50%;}
+.cartas-grid{display:flex;flex-direction:column;gap:8px;}
+.carta{padding:14px 16px;border:1px solid;position:relative;overflow:hidden;}
+.carta::after{content:attr(data-l);position:absolute;right:12px;bottom:-4px;font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;opacity:0.06;line-height:1;}
+.carta.acao{border-color:rgba(93,191,133,0.3);background:rgba(93,191,133,0.05);}
+.carta.desafio{border-color:rgba(229,115,115,0.3);background:rgba(229,115,115,0.05);}
+.carta.bonus{border-color:rgba(245,196,94,0.3);background:rgba(245,196,94,0.05);}
+.carta.cadeia{border-color:rgba(100,149,237,0.3);background:rgba(100,149,237,0.05);}
+.carta-tipo{font-family:'Barlow Condensed',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.carta.acao .carta-tipo{color:#5DBF85;}
+.carta.desafio .carta-tipo{color:#E57373;}
+.carta.bonus .carta-tipo{color:var(--gold2);}
+.carta.cadeia .carta-tipo{color:#93B4F5;}
+.carta-texto{font-size:12px;line-height:1.6;color:rgba(255,255,255,0.75);margin-bottom:8px;padding-right:32px;}
+.carta-pts{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;}
+.carta.acao .carta-pts{color:#5DBF85;}
+.carta.desafio .carta-pts{color:#E57373;}
+.carta.bonus .carta-pts{color:var(--gold);}
+.carta.cadeia .carta-pts{color:#93B4F5;}
+
+.audit-grid{display:flex;flex-direction:column;gap:5px;}
+.audit-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border:1px solid var(--line);background:rgba(255,255,255,0.02);}
+.audit-check{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:#5DBF85;min-width:14px;margin-top:1px;}
+.audit-text{font-size:11.5px;line-height:1.5;color:var(--body);}
+
+.ctrl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.ctrl-item{padding:10px 12px;border:1px solid var(--line);background:rgba(255,255,255,0.02);}
+.ctrl-item.full{grid-column:1 / -1;}
+.ctrl-label{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.ctrl-field{display:block;width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:1px solid rgba(245,196,94,0.3);color:var(--gold);font-family:'Barlow',sans-serif;font-size:12px;padding:4px 2px;outline:none;}
+.ctrl-check-row{display:flex;gap:16px;margin-top:2px;}
+.ctrl-check-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--body);}
+.ctrl-check-box{width:14px;height:14px;border:1px solid rgba(245,196,94,0.4);background:rgba(255,255,255,0.03);flex-shrink:0;}
+.ctrl-nota{grid-column:1 / -1;padding:10px 12px;border:1px solid rgba(245,196,94,0.25);background:rgba(245,196,94,0.05);}
+.ctrl-nota .ctrl-label{color:var(--gold2);}
+.ctrl-nota-val{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:flex;align-items:baseline;gap:4px;}
+.ctrl-nota-sub{font-family:'Barlow',sans-serif;font-size:11px;color:var(--muted);}
+
+.proximo-box{border:1px solid var(--linedark);background:rgba(245,196,94,0.04);padding:16px 18px;}
+.prox-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--gold);margin-bottom:8px;}
+.prox-text{font-size:12.5px;line-height:1.65;color:var(--body);}
+
+.footer{margin:32px 24px 0;padding:16px 0 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:4px;}
+.foot-code{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;text-align:right;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="eyebrow">BM System · Banco de Itens</div>
+    <div class="brand">GUIA</div>
+    <div class="brand-sub">Gestão Unificada da Intervenção e Aprendizagem</div>
+    <div class="hdivider"></div>
+    <div class="pills">
+      <span class="pill">Língua Portuguesa</span>
+      <span class="pill">5º Ano EF</span>
+      <span class="pill solid">Difícil</span>
+      <span class="pill">EF05LP06</span>
+    </div>
+  </div>
+
+  <div class="hab-strip">
+    <span class="hab-code">EF05LP06</span>
+    <div class="hab-div"></div>
+    <span class="hab-desc">Flexionar adequadamente verbos em concordância com pronomes pessoais ou nomes sujeitos da oração, na escrita e na oralidade.</span>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Objetivo Diagnóstico</div>
+    <div class="objetivo-box">
+      <p>Verificar se o estudante aplica a <strong>concordância verbal de forma sistemática</strong> em toda a oração — sujeito, pronome e verbos — ao realizar a substituição do número gramatical.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Texto-Base</div>
+    <div class="textobase-card">
+      <p>No Brasil, todas as crianças têm direito à educação de qualidade. A Constituição Federal garante que o Estado e a família devem trabalhar juntos para que esse direito seja cumprido. Quando os estudantes frequentam a escola regularmente, eles aprendem mais e desenvolvem habilidades importantes para a vida.</p>
+      <p>Professores e gestores escolares também têm papel fundamental. Juntos, eles organizam o ambiente escolar e criam condições para que o aprendizado aconteça. Cada criança que entra na escola carrega consigo uma história e um potencial que merece ser respeitado.</p>
+      <p class="fonte">Fonte: Agência Senado. Disponível em: www.senado.leg.br. Adaptado.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Item</div>
+    <div class="trecho-destaque">
+      <div class="trecho-label">Trecho de referência</div>
+      <p class="trecho-text">"Quando <u>os estudantes frequentam</u> a escola regularmente, <u>eles aprendem</u> mais e <u>desenvolvem</u> habilidades importantes para a vida."</p>
+    </div>
+    <p class="enunciado"><strong>Assinale a alternativa que substitui corretamente o trecho sublinhado, mantendo a concordância verbal:</strong></p>
+    <div class="alt-list">
+      <div class="alt">
+        <span class="alt-ltr">A</span>
+        <span class="alt-txt">"Quando o estudante frequenta a escola regularmente, <span class="err">eles</span> <span class="err">aprende</span> mais e <span class="err">desenvolve</span> habilidades importantes para a vida."</span>
+      </div>
+      <div class="alt gab">
+        <span class="alt-ltr">B</span>
+        <span class="alt-txt">"Quando o estudante frequenta a escola regularmente, <span class="ok">ele</span> <span class="ok">aprende</span> mais e <span class="ok">desenvolve</span> habilidades importantes para a vida."</span>
+        <span class="gab-badge">Gabarito</span>
+      </div>
+      <div class="alt">
+        <span class="alt-ltr">C</span>
+        <span class="alt-txt">"Quando o estudante <span class="err">frequentam</span> a escola regularmente, ele aprende mais e desenvolve habilidades importantes para a vida."</span>
+      </div>
+      <div class="alt">
+        <span class="alt-ltr">D</span>
+        <span class="alt-txt">"Quando os estudantes <span class="err">frequenta</span> a escola regularmente, eles <span class="err">aprende</span> mais e <span class="err">desenvolve</span> habilidades importantes para a vida."</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Cadeia de Concordância · Gabarito B</div>
+    <div class="cadeia">
+      <div class="cadeia-label-row">
+        <span class="cadeia-lbl">Sujeito</span>
+        <span class="cadeia-lbl-arrow">›</span>
+        <span class="cadeia-lbl">Pronome</span>
+        <span class="cadeia-lbl-arrow">›</span>
+        <span class="cadeia-lbl">Verbo 1</span>
+        <span class="cadeia-lbl-arrow">›</span>
+        <span class="cadeia-lbl">Verbo 2</span>
+      </div>
+      <div class="cadeia-row">
+        <div class="cadeia-box sujeito">o estudante</div>
+        <span class="cadeia-arrow">›</span>
+        <div class="cadeia-box pronome">ele</div>
+        <span class="cadeia-arrow">›</span>
+        <div class="cadeia-box verbo">aprende</div>
+        <span class="cadeia-arrow">›</span>
+        <div class="cadeia-box verbo">desenvolve</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Matriz de Raciocínios</div>
+    <div class="mcard-list">
+      <div class="mcard">
+        <div class="mcard-head"><span class="mcard-ltr">A</span><span class="mcard-padrao">Concordância mista</span></div>
+        <div class="mcard-body">
+          <div class="mcard-row"><span class="micro">Raciocínio provável</span><span class="mcard-text">Ajusta o sujeito para singular, mas mantém o pronome "eles" e verbos no singular — sem consistência em toda a frase.</span></div>
+          <hr class="mcard-hr">
+          <div class="mcard-row"><span class="micro">Evidência produzida</span><span class="mcard-text">Percebe que algo mudou, mas não aplica a concordância de forma sistemática.</span></div>
+        </div>
+      </div>
+      <div class="mcard ok">
+        <div class="mcard-head"><span class="mcard-ltr">B</span><span class="mcard-padrao">Cadeia completa e consistente</span></div>
+        <div class="mcard-body">
+          <div class="mcard-row"><span class="micro">Raciocínio esperado</span><span class="mcard-text">Ajusta sujeito, pronome e todos os verbos para o singular com coerência plena.</span></div>
+          <hr class="mcard-hr">
+          <div class="mcard-row"><span class="micro">Evidência produzida</span><span class="mcard-text">Domínio da concordância verbal como cadeia — habilidade desenvolvida.</span></div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-head"><span class="mcard-ltr">C</span><span class="mcard-padrao">Revisão parcial</span></div>
+        <div class="mcard-body">
+          <div class="mcard-row"><span class="micro">Raciocínio provável</span><span class="mcard-text">Corrige pronome e verbos da segunda oração, mas não verifica o primeiro verbo "frequentam" — revisão incompleta.</span></div>
+          <hr class="mcard-hr">
+          <div class="mcard-row"><span class="micro">Evidência produzida</span><span class="mcard-text">Não verifica todas as ocorrências do verbo na frase.</span></div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-head"><span class="mcard-ltr">D</span><span class="mcard-padrao">Sujeito não identificado</span></div>
+        <div class="mcard-body">
+          <div class="mcard-row"><span class="micro">Raciocínio provável</span><span class="mcard-text">Mantém o sujeito no plural e usa verbos no singular — não percebe a relação entre sujeito e verbo ou responde por familiaridade com a frase original.</span></div>
+          <hr class="mcard-hr">
+          <div class="mcard-row"><span class="micro">Evidência produzida</span><span class="mcard-text">Não identifica a relação sujeito-verbo como cadeia coerente.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Evidência Central</div>
+    <div class="evidencia-box">
+      <div class="evid-label">LP06 — Padrão de erro</div>
+      <p class="evid-text">O estudante ainda não aplica a concordância verbal de forma sistemática — corrige um elemento mas não verifica a consistência em toda a oração.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <div class="fluxo-strip">
+    <span class="fluxo-item">Erro</span><span class="fluxo-arrow">›</span>
+    <span class="fluxo-item">Evidência</span><span class="fluxo-arrow">›</span>
+    <span class="fluxo-item">Diagnóstico</span><span class="fluxo-arrow">›</span>
+    <span class="fluxo-item">Decisão</span><span class="fluxo-arrow">›</span>
+    <span class="fluxo-item">Intervenção</span><span class="fluxo-arrow">›</span>
+    <span class="fluxo-item">Nova Verificação</span>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Decisão Pedagógica</div>
+    <div class="dec-table">
+      <div class="dec-row hrow"><div class="dec-cell th">Resultado</div><div class="dec-cell th">Ação do professor</div></div>
+      <div class="dec-row"><div class="dec-cell lbl">Acerto &gt; 70%</div><div class="dec-cell">Avançar para concordância com sujeitos compostos ou ocultos.</div></div>
+      <div class="dec-row"><div class="dec-cell lbl">Erros em A</div><div class="dec-cell">Trabalhar a relação pronome-verbo: o pronome também precisa concordar.</div></div>
+      <div class="dec-row"><div class="dec-cell lbl">Erros em C</div><div class="dec-cell">Trabalhar revisão sistemática da frase inteira — não apenas o primeiro verbo.</div></div>
+      <div class="dec-row"><div class="dec-cell lbl">Erros em D</div><div class="dec-cell">Retomar identificação do sujeito antes de trabalhar concordância verbal.</div></div>
+      <div class="dec-row"><div class="dec-cell lbl">Erros pulverizados</div><div class="dec-cell">Trabalhar concordância com frases curtas e sujeito explícito antes de períodos compostos.</div></div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="int-header">
+    <div class="sec-label">Intervenções Pedagógicas</div>
+    <div class="int-main-title">Três Caminhos para a Consolidação</div>
+    <div class="int-sub">Escolha o modelo adequado ao perfil da turma</div>
+  </div>
+
+  <!-- INT 1 -->
+  <div class="int-card">
+    <div class="int-head">
+      <div class="int-tipo">Modelo 01</div>
+      <div class="int-nome">Quem Faz a Ação?</div>
+      <div class="int-num">01</div>
+    </div>
+    <div class="int-body">
+      <div class="step">
+        <div class="step-head"><span class="step-title">Identifique e Troque</span></div>
+        <p class="step-body">Leia com a turma: "Quando os estudantes frequentam a escola, eles aprendem mais." Peça que circulem o sujeito. Depois troquem por "o estudante" e listem tudo que precisa mudar.</p>
+        <div class="chip-row">
+          <span class="chip">sujeito</span>
+          <span class="chip">pronome</span>
+          <span class="chip">verbo 1</span>
+          <span class="chip">verbo 2</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-head"><span class="step-title">Reescreva a Frase Completa</span></div>
+        <div class="complete-box">
+          <div class="complete-label">Registro individual</div>
+          <p class="complete-text">"Quando o estudante <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> a escola, <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mais."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-head"><span class="step-title">Verificação em Cadeia</span></div>
+        <p class="step-body">Após reescrever, o aluno confere cada elo: sujeito → pronome → verbo 1 → verbo 2. Todos concordam? Se um elo estiver errado, a frase inteira quebra.</p>
+      </div>
+      <div class="estrategia-box">
+        <div class="est-label">Estratégia-chave</div>
+        <p class="est-text">Identificar o sujeito primeiro e verificar todos os verbos e pronomes da frase — a concordância é uma cadeia, não um ajuste pontual.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INT 2 -->
+  <div class="int-card">
+    <div class="int-head">
+      <div class="int-tipo">Modelo 02</div>
+      <div class="int-nome">Sala de Aula Invertida</div>
+      <div class="int-num">02</div>
+    </div>
+    <div class="int-body">
+      <div class="step">
+        <span class="fase-tag">Antes · Em Casa</span>
+        <div class="step-head" style="margin-top:6px"><span class="step-title">Par Singular × Plural</span></div>
+        <p class="step-body">O aluno recebe três pares de frases — uma no plural, uma no singular. Identifica o que mudou em cada par e anota: sujeito, pronome ou verbo. Chega à aula com as anotações.</p>
+      </div>
+      <div class="step">
+        <span class="fase-tag">Durante · Em Grupos</span>
+        <div class="step-head" style="margin-top:6px"><span class="step-title">Mapa da Cadeia</span></div>
+        <p class="step-body">Cada grupo monta um quadro com quatro colunas — Sujeito / Pronome / Verbo 1 / Verbo 2 — preenchendo para frases no singular e no plural. Comparam e discutem onde cada um errou.</p>
+      </div>
+      <div class="step">
+        <span class="fase-tag">Depois · Individual</span>
+        <div class="step-head" style="margin-top:6px"><span class="step-title">Substituição com Verificação</span></div>
+        <p class="step-body">Cada aluno recebe uma frase nova no plural e escreve a versão no singular, assinalando explicitamente cada elemento alterado. Professor avalia o processo de verificação, não apenas o resultado.</p>
+      </div>
+      <div class="observar">
+        <div class="obs-label">O que observar depois</div>
+        <p class="obs-text">O aluno passa a revisar toda a frase após qualquer alteração do sujeito — não apenas o verbo mais próximo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INT 3: GAME -->
+  <div class="game-card" style="margin-top:16px">
+    <div class="game-head">
+      <div class="game-tipo">Modelo 03 · Gamificação</div>
+      <div class="game-nome">Elos da Concordância</div>
+      <div class="game-tagline">Identifique · Ajuste · Complete a Cadeia</div>
+    </div>
+    <div class="game-body">
+
+      <div>
+        <div class="gblock-label">Roleta de Missões</div>
+        <div class="roleta-row">
+          <svg width="110" height="110" viewBox="0 0 110 110">
+            <path d="M55 55 L55 5 A50 50 0 0 1 105 55 Z" fill="#1A3A1A" opacity="0.9"/>
+            <path d="M55 55 L105 55 A50 50 0 0 1 55 105 Z" fill="#3A1A1A" opacity="0.9"/>
+            <path d="M55 55 L55 105 A50 50 0 0 1 5 55 Z" fill="#1A2A4A" opacity="0.9"/>
+            <path d="M55 55 L5 55 A50 50 0 0 1 55 5 Z" fill="#3A2A0A" opacity="0.9"/>
+            <circle cx="55" cy="55" r="50" fill="none" stroke="#F5C45E" stroke-width="1.5" opacity="0.5"/>
+            <line x1="55" y1="5" x2="55" y2="105" stroke="rgba(245,196,94,0.2)" stroke-width="1"/>
+            <line x1="5" y1="55" x2="105" y2="55" stroke="rgba(245,196,94,0.2)" stroke-width="1"/>
+            <circle cx="55" cy="55" r="9" fill="#F5C45E"/>
+            <circle cx="55" cy="55" r="5" fill="#031E38"/>
+            <polygon points="55,2 50,16 60,16" fill="#EF9F27"/>
+            <text x="55" y="31" text-anchor="middle" font-family="Barlow Condensed" font-size="7.5" font-weight="700" fill="rgba(255,255,255,0.9)">SUJEITO</text>
+            <text x="83" y="60" text-anchor="middle" font-family="Barlow Condensed" font-size="7.5" font-weight="700" fill="rgba(255,255,255,0.9)">VERBO</text>
+            <text x="55" y="87" text-anchor="middle" font-family="Barlow Condensed" font-size="7.5" font-weight="700" fill="rgba(255,255,255,0.9)">CADEIA</text>
+            <text x="27" y="60" text-anchor="middle" font-family="Barlow Condensed" font-size="7.5" font-weight="700" fill="rgba(255,255,255,0.5)">PAUSA</text>
+          </svg>
+          <div class="rleg">
+            <div class="rleg-item"><div class="rleg-dot" style="background:#1A5C1A"></div><div class="rleg-text"><strong>SUJEITO</strong> — Circule o sujeito e diga o número</div></div>
+            <div class="rleg-item"><div class="rleg-dot" style="background:#8B1A1A"></div><div class="rleg-text"><strong>VERBO</strong> — Corrija todos os verbos da frase</div></div>
+            <div class="rleg-item"><div class="rleg-dot" style="background:#1A2A5C"></div><div class="rleg-text"><strong>CADEIA</strong> — Reescreva a frase inteira, elo a elo</div></div>
+            <div class="rleg-item"><div class="rleg-dot" style="background:#5C3A0A"></div><div class="rleg-text" style="color:var(--muted)">PAUSA — Perde a vez</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="gblock-label">Dado e Ampulheta</div>
+        <div class="da-row">
+          <div class="da-block">
+            <svg width="58" height="58" viewBox="0 0 58 58">
+              <rect x="1" y="1" width="56" height="56" rx="10" fill="#F8F5F0" stroke="#F5C45E" stroke-width="1.5" stroke-opacity="0.6"/>
+              <circle cx="17" cy="17" r="4.5" fill="#031E38"/>
+              <circle cx="41" cy="17" r="4.5" fill="#031E38"/>
+              <circle cx="29" cy="29" r="4.5" fill="#031E38"/>
+              <circle cx="17" cy="41" r="4.5" fill="#031E38"/>
+              <circle cx="41" cy="41" r="4.5" fill="#031E38"/>
+              <path d="M57 10 Q57 57 10 57" stroke="rgba(0,0,0,0.2)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div class="dado-faces">
+              <div class="dado-face"><span class="df-n">1</span><span class="df-a">Avance 1 casa</span></div>
+              <div class="dado-face"><span class="df-n">2</span><span class="df-a">Identifique o sujeito</span></div>
+              <div class="dado-face"><span class="df-n">3</span><span class="df-a">Desafie outra equipe</span></div>
+              <div class="dado-face"><span class="df-n">4</span><span class="df-a">Corrija todos os verbos + 2 pts</span></div>
+              <div class="dado-face"><span class="df-n">5</span><span class="df-a">Gire a roleta</span></div>
+              <div class="dado-face"><span class="df-n">6</span><span class="df-a">Carta Cadeia!</span></div>
+            </div>
+          </div>
+          <div class="da-block">
+            <svg width="48" height="72" viewBox="0 0 48 72">
+              <rect x="2" y="2" width="44" height="68" rx="4" fill="none" stroke="rgba(245,196,94,0.35)" stroke-width="1.5"/>
+              <path d="M6 6 L42 6 L30 33 L18 33 Z" fill="rgba(245,196,94,0.35)"/>
+              <path d="M18 39 L30 39 L36 64 L12 64 Z" fill="rgba(245,196,94,0.12)"/>
+              <line x1="24" y1="33" x2="24" y2="39" stroke="rgba(245,196,94,0.6)" stroke-width="1.5"/>
+              <rect x="16" y="32" width="16" height="7" rx="2" fill="#031E38" stroke="rgba(245,196,94,0.3)" stroke-width="1"/>
+            </svg>
+            <div class="amp-tempos">
+              <div class="amp-t"><span class="at-n">20s</span><span class="at-a">Circule o sujeito</span></div>
+              <div class="amp-t"><span class="at-n">40s</span><span class="at-a">Corrija os verbos</span></div>
+              <div class="amp-t"><span class="at-n">60s</span><span class="at-a">Leia a frase inteira corrigida</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="gblock-label">Tabuleiro · 15 Casas</div>
+        <div class="tabuleiro">
+          <div class="casa inicio">IN</div>
+          <div class="casa">·</div>
+          <div class="casa carta">C</div>
+          <div class="casa plus">+2</div>
+          <div class="casa">·</div>
+          <div class="casa minus">−1</div>
+          <div class="casa desafio">?</div>
+          <div class="casa">·</div>
+          <div class="casa carta">C</div>
+          <div class="casa pausa">II</div>
+          <div class="casa plus">+3</div>
+          <div class="casa">·</div>
+          <div class="casa desafio">?</div>
+          <div class="casa">·</div>
+          <div class="casa fim">FIM</div>
+        </div>
+        <div class="tab-legend">
+          <span class="tleg"><span class="tleg-dot" style="background:#5DBF85"></span>+2/+3 Bônus</span>
+          <span class="tleg"><span class="tleg-dot" style="background:#E57373"></span>−1 Perde ponto</span>
+          <span class="tleg"><span class="tleg-dot" style="background:#F5C45E"></span>C Carta</span>
+          <span class="tleg"><span class="tleg-dot" style="background:#93B4F5"></span>? Desafio</span>
+          <span class="tleg"><span class="tleg-dot" style="background:#B7791F"></span>II Pausa</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="gblock-label">Baralho dos Elos</div>
+        <div class="cartas-grid">
+          <div class="carta acao" data-l="S">
+            <div class="carta-tipo">Carta Sujeito</div>
+            <p class="carta-texto">Receba uma frase. Circule o sujeito em voz alta e diga: singular ou plural? Em 20 segundos. Sem circular, sem pontuar.</p>
+            <div class="carta-pts">+2 pts</div>
+          </div>
+          <div class="carta cadeia" data-l="C">
+            <div class="carta-tipo">Carta Cadeia</div>
+            <p class="carta-texto">Reescreva a frase trocando o número do sujeito. Mostre cada elo alterado: sujeito → pronome → verbo 1 → verbo 2.</p>
+            <div class="carta-pts">+3 pts</div>
+          </div>
+          <div class="carta desafio" data-l="D">
+            <div class="carta-tipo">Carta Armadilha</div>
+            <p class="carta-texto">O professor apresenta uma frase com concordância mista (erro tipo A ou C). Sua equipe encontra o elo quebrado e corrige.</p>
+            <div class="carta-pts">+3 pts</div>
+          </div>
+          <div class="carta bonus" data-l="B">
+            <div class="carta-tipo">Carta Bônus</div>
+            <p class="carta-texto">Crie uma frase com sujeito plural e escreva sua versão no singular com todos os elos corretos. A equipe adversária julga.</p>
+            <div class="carta-pts">+4 pts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="observar">
+        <div class="obs-label">O que observar depois</div>
+        <p class="obs-text">O aluno passa a identificar o sujeito antes de qualquer ajuste e verifica sistematicamente todos os verbos e pronomes da frase como uma cadeia.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Próximo Passo · Nova Verificação</div>
+    <div class="proximo-box">
+      <div class="prox-title">Sujeito Composto</div>
+      <p class="prox-text">Aplicar um item com sujeito composto — ex: "O professor e os alunos _____ trabalhando juntos." O estudante precisará perceber que dois sujeitos no singular exigem verbo no plural. Avalia se a concordância está consolidada ou ainda depende de sujeito simples e explícito.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Auditoria GUIA</div>
+    <div class="audit-grid">
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Alinhado à BNCC — EF05LP06</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Fonte confiável — Agência Senado</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Trecho de referência destacado no item</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Distratores baseados em padrões de erro distintos e diagnósticos</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Cadeia de concordância visualizada graficamente</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Hipóteses diagnósticas consistentes por alternativa</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Intervenção alinhada ao padrão de erro</span></div>
+      <div class="audit-item"><span class="audit-check">✓</span><span class="audit-text">Progressão prevista — sujeito composto</span></div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="section">
+    <div class="sec-label">Controle GUIA</div>
+    <div class="ctrl-grid">
+      <div class="ctrl-nota">
+        <div class="ctrl-label">Classificação · Status</div>
+        <div class="ctrl-nota-val">Banco Fundador<span class="ctrl-nota-sub"> · Aprovado</span></div>
+      </div>
+      <div class="ctrl-item"><div class="ctrl-label">Turma</div><input class="ctrl-field" type="text" placeholder="5º ano — ______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">Data de Aplicação</div><input class="ctrl-field" type="text" placeholder="__ / __ / ______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">Total de Estudantes</div><input class="ctrl-field" type="text" placeholder="______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">% Acerto — Gabarito B</div><input class="ctrl-field" type="text" placeholder="______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">% Erro A</div><input class="ctrl-field" type="text" placeholder="______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">% Erro C</div><input class="ctrl-field" type="text" placeholder="______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">% Erro D</div><input class="ctrl-field" type="text" placeholder="______"></div>
+      <div class="ctrl-item full">
+        <div class="ctrl-label">Intervenção Realizada</div>
+        <div class="ctrl-check-row">
+          <div class="ctrl-check-item"><div class="ctrl-check-box"></div> Sim</div>
+          <div class="ctrl-check-item"><div class="ctrl-check-box"></div> Não</div>
+        </div>
+      </div>
+      <div class="ctrl-item"><div class="ctrl-label">Data Nova Verificação</div><input class="ctrl-field" type="text" placeholder="__ / __ / ______"></div>
+      <div class="ctrl-item"><div class="ctrl-label">Resultado Pós-Intervenção</div><input class="ctrl-field" type="text" placeholder="______"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="foot-brand">GUIA</div>
+    <div class="foot-code">EF05LP06 · CONCORDÂNCIA VERBAL<br>5º ANO EF · DIFÍCIL</div>
+  </div>
+
+</div>
+</body>
+</html>
